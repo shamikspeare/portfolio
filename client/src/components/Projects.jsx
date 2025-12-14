@@ -1,25 +1,17 @@
-import React from 'react'
-import MystreamCard from './MystreamCard'
-import { Highlighter } from "@/components/magicui/highlighter";
-
+import React from "react";
+import MystreamCard from "./MystreamCard";
 
 const Projects = () => {
   return (
     <>
-      <div className="mt-14 font-goldman text-5xl sm:text-6xl lg:text-[100px] ">
-        <Highlighter action="highlight" color="hsl(198.4 93.2% 59.6%)" isView={true}>
-          Projects
-        </Highlighter>
+      <div className="mt-14 font-roboto text-5xl sm:text-6xl lg:text-[100px] flex justify-center items-center font-bold ">
+        PROJECTS
       </div>
-      <MystreamCard/>
-            
-            
-       
-       
+      <div className="px-4">
+        <MystreamCard />
+      </div>
     </>
+  );
+};
 
-
-  )
-}
-
-export default Projects
+export default Projects;
