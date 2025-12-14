@@ -32,7 +32,7 @@ const About = () => {
           {/* Right Column - Text Content */}
           <div className="flex-1 flex flex-col items-center justify-center text-center p-6 order-1 md:order-2 z-10">
             <div className="flex flex-col items-center justify-center">
-              <div className="font-roboto font-bold text-5xl sm:text-7xl leading-tight text-neutral-800">
+              <div className="font-roboto font-bold text-4xl sm:text-7xl leading-tight text-neutral-800">
                 <h1>HI, I'M SHAMIK</h1>
               </div>
               <div className="font-roboto text-lg sm:text-2xl mt-2 text-neutral-600 ">
