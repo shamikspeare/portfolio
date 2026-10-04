@@ -500,6 +500,185 @@ a { color: inherit; text-decoration: none; }
   .contact-form-footer { grid-column: 1; }
 }
 
+@media (max-width: 640px) {
+  .hero {
+    min-height: 100svh;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding:
+      max(1.25rem, env(safe-area-inset-top))
+      1rem
+      max(3rem, env(safe-area-inset-bottom));
+  }
+
+  .hero-intro {
+    width: 100%;
+    align-items: flex-start;
+    gap: 1.15rem;
+    text-align: left;
+  }
+
+  .hero-photo {
+    width: 6.25rem;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 22px rgba(17, 17, 15, 0.1);
+  }
+
+  .hero-copy { width: 100%; }
+
+  .eyebrow {
+    margin-bottom: 0.65rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hero-copy h1 {
+    max-width: 20rem;
+    font-size: clamp(2.35rem, 11vw, 2.8rem);
+    line-height: 0.94;
+  }
+
+  .hero-role {
+    margin-top: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .hero-meta {
+    justify-content: flex-start;
+    max-width: 22rem;
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+
+  .skills-browser,
+  .skills-browser.is-open {
+    width: 100%;
+    max-width: none;
+    margin: 1.35rem 0 0;
+    border-radius: 0.9rem;
+  }
+
+  .skills-browser { --panel-pad-x: 0.9rem; }
+  .skills-browser.is-open { --panel-pad-x: 1rem; }
+
+  .skills-toggle {
+    min-height: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .top-skills,
+  .skill-pills { gap: 0.4rem; }
+
+  .top-skills span,
+  .skill-pills span {
+    padding: 0.38rem 0.62rem;
+    font-size: 0.68rem;
+  }
+
+  .skills-browser.is-open .skills-content { max-height: 15rem; }
+
+  .skill-group h2 { font-size: 0.74rem; }
+
+  .hero-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .hero-nav a,
+  .hero-nav button {
+    width: 100%;
+    min-height: 3.25rem;
+    justify-content: space-between;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid #e7e7e4;
+    border-radius: 0.75rem;
+    color: var(--accent);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(17, 17, 15, 0.035);
+    font-size: 0.9rem;
+  }
+
+  .hero-nav a:hover,
+  .hero-nav button:hover { transform: none; }
+
+  .contact-panel-shell,
+  .projects-panel-shell {
+    width: 100%;
+    max-width: none;
+  }
+
+  .contact-panel-shell.is-open,
+  .projects-panel-shell.is-open { margin-top: 1rem; }
+
+  .project-card {
+    width: 100%;
+    padding: 0.85rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 28px rgba(17, 17, 15, 0.08);
+  }
+
+  .project-image-stage {
+    min-height: 12.5rem;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .project-card-body { padding: 1.3rem 0.35rem 0.45rem; }
+
+  .project-card h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+
+  .project-card a {
+    gap: 0.6rem;
+    font-size: 0.88rem;
+  }
+
+  .project-github-icon { width: 1.3rem; height: 1.3rem; }
+
+  .contact-card { padding-top: 0.35rem; }
+
+  .contact-links {
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-links a { font-size: 0.82rem; }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .contact-form label:nth-child(3),
+  .contact-form-footer { grid-column: 1; }
+
+  .contact-form input,
+  .contact-form textarea {
+    min-height: 2.8rem;
+    padding-block: 0.75rem;
+    background: #fff;
+  }
+
+  .contact-form textarea { min-height: 7rem; }
+
+  .contact-form-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .contact-form-footer button {
+    width: 100%;
+    min-height: 2.8rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
