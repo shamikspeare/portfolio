@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ArrowUpRight, ChevronRight, Download, Github, Plus } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronRight, Download, Github } from "lucide-react";
 import profilePhoto from "../assets/LINKEDIN PP 2.jpg";
 import bmsThumbnail from "../assets/bms_thumbnail.webp";
 import Contact from "../components/Contact";
@@ -87,7 +87,7 @@ const Home = () => {
             aria-controls="projects-panel"
             onClick={() => toggleSection("projects")}
           >
-            Projects <Plus size={17} strokeWidth={1.8} />
+            Projects
           </button>
           <button
             type="button"
@@ -96,7 +96,7 @@ const Home = () => {
             aria-controls="contact-panel"
             onClick={() => toggleSection("contact")}
           >
-            Contact <Plus size={17} strokeWidth={1.8} />
+            Contact
           </button>
           <a
             href="mailto:gshamik14@gmail.com?subject=Resume%20request"
