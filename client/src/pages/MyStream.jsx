@@ -1,55 +1,52 @@
-import React from 'react'
-import MyStream_login_vid from '../assets/MyStream_login_vid.mp4'
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import loginVideo from "../assets/MyStream_login_vid.mp4";
+
+const features = [
+  "High-quality real-time video calls powered by Stream",
+  "Secure instant messaging alongside every call",
+  "Custom authentication without a third-party auth service",
+  "Friend requests, notifications and generated profile avatars",
+];
+
 const MyStream = () => {
-
   return (
-    <>
-      <div className='container'>
-        <div className='flex flex-col'>
-          <div className='my-14 font-roboto font-bold text-[42px]'>MyStream</div>
-          <div className="prose prose-invert max-w-none">
-            <p>
-              MyStream is a <strong>MERN stack</strong> web application that brings people closer through
-              <strong> real-time video calling</strong>, <strong>instant messaging</strong>, and social features.
-              Built with the power of <strong>Stream</strong>, it delivers a smooth, scalable communication
-              experience — all wrapped in a modern UI.
-            </p>
+    <main className="case-study">
+      <header className="case-nav">
+        <Link to="/"><ArrowLeft size={17} /> Back home</Link>
+        <a href="https://mystream.onrender.com/" target="_blank" rel="noopener noreferrer">
+          View live <ArrowUpRight size={17} />
+        </a>
+      </header>
 
-            <h2 className='bg-sky-400 p-2 rounded-md mt-5 inline-block text-lg'>Features:- </h2>
-            <ul>
-              <li>📹 <strong>Real-Time Video Calling</strong> – High-quality peer-to-peer video sessions powered by Stream.</li>
-              <li>💬 <strong>Instant Messaging</strong> – Seamless, secure text chat alongside video calls.</li>
-              <li>🔐 <strong>Custom Authentication</strong> – My own authentication system (no third-party auth services).</li>
-              <li>👥 <strong>Friend Requests</strong> – Send, accept, or deny friend requests.</li>
-              <li>🔔 <strong>Notifications</strong> – Get notified when requests are sent or responded to.</li>
-              <li>🖼️ <strong>Auto Avatars</strong> – Unique profile avatars generated dynamically via API.</li>
-              <li>☁️ <strong>Free Hosting</strong> – Deployed on Render’s free tier.</li>
-            </ul>
+      <section className="case-hero">
+        <p className="section-index">Case study / 01</p>
+        <h1>MyStream</h1>
+        <p>A full-stack social platform for real-time video, messaging and meaningful connections.</p>
+      </section>
 
-            <h2 className='bg-sky-400 p-2 rounded-md mt-5 inline-block text-lg'>TECH STACK:- </h2>
-            <ul>
-              <li><strong>Frontend</strong>: React, TailwindCSS</li>
-              <li><strong>Backend</strong>: Node.js, Express.js</li>
-              <li><strong>Database</strong>: MongoDB</li>
-              <li><strong>Real-time Communication</strong>: Stream SDK</li>
-              <li><strong>Hosting</strong>: Render (free tier)</li>
-            </ul>
+      <section className="case-video" aria-label="MyStream login preview">
+        <video src={loginVideo} autoPlay loop muted playsInline />
+      </section>
 
-            <h2 className='bg-sky-400 p-2 rounded-md mt-5 mb-1 inline-block text-lg'>LOGIN:- </h2>
-            <video src={MyStream_login_vid} autoPlay loop muted playsInline className='rounded-lg shadow-lg'></video>
-
-
-            <p className='mt-5'>🌐 Live Demo 👉 <span><a href="https://mystream.onrender.com/" target="_blank"
-              rel="noopener noreferrer" className='text-blue-600'>https://mystream.onrender.com/</a></span></p>
-
-
-          </div>
-
-
+      <section className="case-content">
+        <div>
+          <p className="section-index">The project</p>
+          <h2>Communication, without the clutter.</h2>
         </div>
-      </div>
-    </>
-  )
-}
+        <div className="case-copy">
+          <p>
+            MyStream combines real-time calling, chat and social discovery in a focused interface. I designed and developed the React frontend, Node.js API and MongoDB data layer, then integrated Stream for dependable live communication.
+          </p>
+          <ul>{features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+          <div className="case-stack">
+            <span>React</span><span>Tailwind CSS</span><span>Node.js</span>
+            <span>Express</span><span>MongoDB</span><span>Stream SDK</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};
 
-export default MyStream
+export default MyStream;

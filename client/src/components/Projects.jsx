@@ -1,5 +1,6 @@
 import React from "react";
 import MystreamCard from "./MystreamCard";
+import CoBoardCard from "./CoBoardCard";
 
 const Projects = () => {
   return (
@@ -9,6 +10,7 @@ const Projects = () => {
       </div>
       <div className="px-4">
         <MystreamCard />
+        <CoBoardCard />
       </div>
     </>
   );
