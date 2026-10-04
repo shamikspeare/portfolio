@@ -64,16 +64,16 @@ const Skills = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl w-full mt-7'>
           {/* ABOUT ME */}
           <div className="rounded-3xl p-5 ">
-            <h2 className="font-roboto text-[18px] sm:text-[22px] md:text-[25px] font-bold text-neutral-700">ABOUT ME</h2>
-            <p className="text-neutral-500">
+            <h2 className="font-roboto text-xl sm:text-2xl md:text-3xl font-bold">ABOUT ME</h2>
+            <p className="text-neutral-400">
               I am a <strong>Sophomore</strong> studying <strong>Electrical & Electronics Engineering (EEE)</strong> at <strong>IEM Salt Lake, Kolkata</strong>.
               Currently architecting web solutions as a <strong>MERN Full Stack Developer</strong>, I am leveraging my hardware background to transition into <strong>Robotics Software Engineering</strong>. Based in <strong>India</strong>, I build software that interacts with the real world.
               My hobbies include <strong>Playing Guitar</strong> and <strong>Traveling</strong>.
             </p>
           </div>
           {/* WEB DEVELOPMENT */}
-          <div className="border border-sky-600/20 rounded-3xl p-5 bg-sky-50">
-            <p className="font-roboto text-[18px] sm:text-[22px] md:text-[25px] font-bold text-sky-600">WEB DEVELOPMENT</p>
+          <div className="border-2 border-sky-500/50 rounded-3xl p-5 bg-sky-300/40">
+            <p className="font-roboto text-[18px] sm:text-[22px] md:text-[25px] font-bold text-sky-300">WEB DEVELOPMENT</p>
             <div className="flex flex-wrap gap-6 sm:gap-4 mt-3">
               {WebDevelopment.map((skill, index) => (
                 <div key={index} className="flex flex-col items-center">
@@ -89,8 +89,8 @@ const Skills = () => {
             </div>
           </div>
           {/* MACHINE LEARNING */}
-          <div className="border border-red-600/20 rounded-3xl p-5 bg-red-50">
-            <p className="font-roboto text-[18px] sm:text-[22px] md:text-[25px] font-bold text-red-600">MACHINE LEARNING</p>
+          <div className="border-red-500/50 border-2 rounded-3xl p-5 bg-red-300/40 ">
+            <p className="font-roboto text-[18px] sm:text-[22px] md:text-[25px] font-bold text-red-300">MACHINE LEARNING</p>
             <div className="flex flex-wrap gap-6 sm:gap-4 mt-3">
               {MachineLearning.map((skill, index) => (
                 <div key={index} className="flex flex-col items-center">
@@ -106,8 +106,8 @@ const Skills = () => {
             </div>
           </div>
           {/* LANGUAGES */}
-          <div className="border border-green-600/20 rounded-3xl p-5 bg-green-50">
-            <p className="font-roboto text-[18px] sm:text-[22px] md:text-[25px] font-bold text-green-600">LANGUAGES</p>
+          <div className="border-2 border-green-500/50 rounded-3xl p-5 bg-green-300/40">
+            <p className="font-roboto text-[18px] sm:text-[22px] md:text-[25px] font-bold text-green-300">LANGUAGES</p>
             <div className="flex flex-wrap gap-6 sm:gap-4 mt-3">
               {languages.map((skill, index) => (
                 <div key={index} className="flex flex-col items-center">

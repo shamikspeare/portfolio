@@ -14,16 +14,16 @@ const About = () => {
     <>
       <div className="bg-gradient-to-b from-white via-sky-50 to-neutral-200 rounded-b-[50px] sm:rounded-b-[80px] overflow-hidden">
 
-        <div className="relative min-h-screen w-full flex flex-col md:flex-row overflow-hidden">
+        <div className="relative min-h-[85vh] md:min-h-screen w-full flex flex-col md:flex-row overflow-hidden">
           {/* Left Column - Image */}
           <div className="flex-1 flex items-end justify-center md:justify-start order-2 md:order-1 relative z-0">
-            <div className="relative">
+            <div className="relative flex justify-center items-end w-full">
               {/* Dark spot behind image at base */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-neutral-500 via-neutral-400/50 to-transparent -z-10 scale-150 blur-xl" />
               <img
                 src={pp}
                 alt="Profile"
-                className="w-[700px] h-[700px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] object-cover relative z-10"
+                className="h-[60vh] w-auto max-w-full md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] object-cover relative z-10 drop-shadow-2xl"
                 draggable={false}
               />
             </div>
