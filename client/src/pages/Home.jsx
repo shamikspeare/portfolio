@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ArrowRight, ArrowUpRight, Download, Github, Maximize2, Minimize2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, ArrowUpRight, Download, Github, Maximize2, Minimize2, Moon, Sun } from "lucide-react";
 import profilePhoto from "../assets/LINKEDIN PP 2.jpg";
 import bmsThumbnail from "../assets/bms_thumbnail.webp";
 import Contact from "../components/Contact";
@@ -22,6 +22,21 @@ const skillGroups = [
 const Home = () => {
   const [skillsOpen, setSkillsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const theme = darkMode ? "dark" : "light";
+    const themeColor = darkMode ? "#0a0a0a" : "#fafafa";
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+    document.documentElement.dataset.theme = theme;
+    themeColorMeta?.setAttribute("content", themeColor);
+
+    return () => {
+      delete document.documentElement.dataset.theme;
+      themeColorMeta?.setAttribute("content", "#fafafa");
+    };
+  }, [darkMode]);
 
   const toggleSection = (section) => {
     setActiveSection((current) => current === section ? null : section);
@@ -29,6 +44,20 @@ const Home = () => {
 
   return (
     <main className="site-shell">
+      <button
+        className={`theme-toggle${darkMode ? " is-dark" : ""}`}
+        type="button"
+        aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+        aria-pressed={darkMode}
+        onClick={() => setDarkMode((enabled) => !enabled)}
+      >
+        <span className="theme-toggle-thumb">
+          {darkMode
+            ? <Moon size={15} strokeWidth={2.2} aria-hidden="true" />
+            : <Sun size={15} strokeWidth={2.2} aria-hidden="true" />}
+        </span>
+      </button>
+
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-intro">
           <img
