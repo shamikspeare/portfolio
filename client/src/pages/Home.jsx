@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ArrowUpRight, ChevronRight, Download, Github } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Github, Maximize2, Minimize2 } from "lucide-react";
 import profilePhoto from "../assets/LINKEDIN PP 2.jpg";
 import bmsThumbnail from "../assets/bms_thumbnail.webp";
 import Contact from "../components/Contact";
@@ -57,7 +57,9 @@ const Home = () => {
                 onClick={() => setSkillsOpen((open) => !open)}
               >
                 <span>See all Skills</span>
-                <ChevronRight size={17} strokeWidth={2} />
+                {skillsOpen
+                  ? <Minimize2 size={17} strokeWidth={2} aria-hidden="true" />
+                  : <Maximize2 size={17} strokeWidth={2} aria-hidden="true" />}
               </button>
 
               <div className="top-skills" aria-label="Top skills">
