@@ -56,7 +56,7 @@ const Home = () => {
                 aria-controls="skills-content"
                 onClick={() => setSkillsOpen((open) => !open)}
               >
-                <span>See all skills</span>
+                <span>See all Skills</span>
                 <ChevronRight size={17} strokeWidth={2} />
               </button>
 

@@ -108,7 +108,7 @@ a { color: inherit; text-decoration: none; }
   max-width: calc(100vw - 3rem);
   margin-top: 1.25rem;
   padding: 0.7rem var(--panel-pad-x) 0.8rem;
-  border: 1px dashed var(--accent);
+  border: 1px dashed #b9b9b4;
   border-radius: 0.6rem;
   color: var(--accent);
   background: transparent;
@@ -132,7 +132,7 @@ a { color: inherit; text-decoration: none; }
   margin-inline: calc(var(--panel-pad-x) * -1);
   padding: 0 var(--panel-pad-x) 0.55rem;
   border: 0;
-  border-bottom: 1px dashed currentColor;
+  border-bottom: 1px dashed #b9b9b4;
   color: inherit;
   background: transparent;
   font: inherit;
@@ -592,13 +592,13 @@ a { color: inherit; text-decoration: none; }
   .hero-nav button {
     width: 100%;
     min-height: 3.25rem;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0.85rem 0.9rem;
     border: 1px solid #e7e7e4;
     border-radius: 0.75rem;
     color: var(--accent);
     background: #fff;
-    box-shadow: 0 4px 12px rgba(17, 17, 15, 0.035);
+    box-shadow: none;
     font-size: 0.9rem;
   }
 
@@ -606,9 +606,9 @@ a { color: inherit; text-decoration: none; }
   .hero-nav button:hover { transform: none; }
 
   .hero-nav .nav-toggle.is-active {
-    border-color: var(--accent);
-    color: #fff;
-    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: rgba(21, 87, 255, 0.1);
   }
 
   .contact-panel-shell,
