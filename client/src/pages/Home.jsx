@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { ArrowRight, ArrowUpRight, Download, Github, Maximize2, Minimize2, Moon, Sun } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, ArrowUpRight, ChevronDown, Download, Github, Settings } from "lucide-react";
 import profilePhoto from "../assets/LINKEDIN PP 2.jpg";
 import bmsThumbnail from "../assets/bms_thumbnail.webp";
 import Contact from "../components/Contact";
@@ -22,21 +22,6 @@ const skillGroups = [
 const Home = () => {
   const [skillsOpen, setSkillsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const theme = darkMode ? "dark" : "light";
-    const themeColor = darkMode ? "#0a0a0a" : "#fafafa";
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-
-    document.documentElement.dataset.theme = theme;
-    themeColorMeta?.setAttribute("content", themeColor);
-
-    return () => {
-      delete document.documentElement.dataset.theme;
-      themeColorMeta?.setAttribute("content", "#fafafa");
-    };
-  }, [darkMode]);
 
   const toggleSection = (section) => {
     setActiveSection((current) => current === section ? null : section);
@@ -44,20 +29,6 @@ const Home = () => {
 
   return (
     <main className="site-shell">
-      <button
-        className={`theme-toggle${darkMode ? " is-dark" : ""}`}
-        type="button"
-        aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-        aria-pressed={darkMode}
-        onClick={() => setDarkMode((enabled) => !enabled)}
-      >
-        <span className="theme-toggle-thumb">
-          {darkMode
-            ? <Moon size={15} strokeWidth={2.2} aria-hidden="true" />
-            : <Sun size={15} strokeWidth={2.2} aria-hidden="true" />}
-        </span>
-      </button>
-
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-intro">
           <img
@@ -68,8 +39,10 @@ const Home = () => {
           />
 
           <div className="hero-copy">
-            <p className="eyebrow">Hello, I&apos;m</p>
-            <h1 id="hero-title">Shamik Goswami</h1>
+            <div className="hero-name-row">
+              <h1 id="hero-title">Shamik Goswami</h1>
+              <span className="pronouns">he/him</span>
+            </div>
             <p className="hero-role">Aspiring Embedded / Firmware Developer</p>
             <p className="hero-meta">
               B.Tech in Electrical &amp; Electronics Engineering, IEM Kolkata
@@ -78,18 +51,24 @@ const Home = () => {
             </p>
 
             <div className={`skills-browser${skillsOpen ? " is-open" : ""}`}>
-              <button
-                className="skills-toggle"
-                type="button"
-                aria-expanded={skillsOpen}
-                aria-controls="skills-content"
-                onClick={() => setSkillsOpen((open) => !open)}
-              >
-                <span>See all Skills</span>
-                {skillsOpen
-                  ? <Minimize2 size={17} strokeWidth={2} aria-hidden="true" />
-                  : <Maximize2 size={17} strokeWidth={2} aria-hidden="true" />}
-              </button>
+              <div className="skills-heading">
+                <div className="skills-heading-label">
+                  <span className="skills-icon" aria-hidden="true">
+                    <Settings size={16} strokeWidth={1.9} />
+                  </span>
+                  <span className="skills-title">Skills</span>
+                </div>
+                <button
+                  className="skills-toggle"
+                  type="button"
+                  aria-expanded={skillsOpen}
+                  aria-controls="skills-content"
+                  onClick={() => setSkillsOpen((open) => !open)}
+                >
+                  <span>See all</span>
+                  <ChevronDown size={14} strokeWidth={2} aria-hidden="true" />
+                </button>
+              </div>
 
               <div className="top-skills" aria-label="Top skills">
                 <span>C</span><span>Kicad</span><span>STM32</span>
