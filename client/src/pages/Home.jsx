@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { ArrowRight, ArrowUpRight, ChevronDown, Download, Github, Settings } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, ChevronDown, Download, Github, Settings } from "lucide-react";
 import profilePhoto from "../assets/LINKEDIN PP 2.jpg";
 import bmsThumbnail from "../assets/bms_thumbnail.webp";
+import flashProject from "../assets/flashproject.webp";
+import flashProjectMobile from "../assets/flashproject-mobile.webp";
 import Contact from "../components/Contact";
 
 const skillGroups = [
@@ -20,8 +22,18 @@ const skillGroups = [
 ];
 
 const Home = () => {
-  const [skillsOpen, setSkillsOpen] = useState(false);
+  const [skillsOpen, setSkillsOpen] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia("(min-width: 641px)").matches
+  );
   const [activeSection, setActiveSection] = useState(null);
+
+  useEffect(() => {
+    const laptopQuery = window.matchMedia("(min-width: 641px)");
+    const syncSkillsState = (event) => setSkillsOpen(event.matches);
+
+    laptopQuery.addEventListener("change", syncSkillsState);
+    return () => laptopQuery.removeEventListener("change", syncSkillsState);
+  }, []);
 
   const toggleSection = (section) => {
     setActiveSection((current) => current === section ? null : section);
@@ -45,9 +57,10 @@ const Home = () => {
             </div>
             <p className="hero-role">Aspiring Embedded / Firmware Developer</p>
             <p className="hero-meta">
-              B.Tech in Electrical &amp; Electronics Engineering, IEM Kolkata
-              <span aria-hidden="true">·</span> 14 July 2004
-              <span aria-hidden="true">·</span> Age 22
+              <span>B.Tech in Electrical &amp; Electronics Engineering, IEM Kolkata</span>
+              <span className="hero-personal-meta">
+                14 July 2004 <span aria-hidden="true">·</span> Age 22
+              </span>
             </p>
 
             <div className={`skills-browser${skillsOpen ? " is-open" : ""}`}>
@@ -65,7 +78,7 @@ const Home = () => {
                   aria-controls="skills-content"
                   onClick={() => setSkillsOpen((open) => !open)}
                 >
-                  <span>See all</span>
+                  <span>{skillsOpen ? "Show less" : "See all"}</span>
                   <ChevronDown size={14} strokeWidth={2} aria-hidden="true" />
                 </button>
               </div>
@@ -136,15 +149,75 @@ const Home = () => {
                 <img src={bmsThumbnail} alt="4S lithium-ion battery management system board" />
               </div>
               <div className="project-card-body">
-                <h2>4S Li on BMS</h2>
+                <p className="project-category">Power electronics · Embedded</p>
+                <h2>4S Li-ion BMS</h2>
+                <p className="project-summary">
+                  Compact protection and cell-balancing board for a four-cell lithium-ion pack.
+                </p>
+
+                <div className="project-contribution">
+                  <p>My contribution</p>
+                  <span>PCB design · Circuit validation · Embedded firmware</span>
+                </div>
+
+                <ul className="project-tools" aria-label="Project tools">
+                  <li>KiCad</li>
+                  <li>Embedded C</li>
+                  <li>LTspice</li>
+                </ul>
+
                 <a
+                  className="project-github-link"
                   href="https://github.com/shamikspeare?tab=repositories&q=BMS"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="project-github-icon" size={24} strokeWidth={1.8} />
-                  <span>Explore the build on GitHub</span>
-                  <ArrowRight className="project-link-arrow" size={18} strokeWidth={1.8} />
+                  <Github className="project-github-icon" size={22} strokeWidth={1.9} />
+                  <span>GitHub</span>
+                  <ArrowUpRight className="project-link-arrow" size={20} strokeWidth={1.9} />
+                </a>
+              </div>
+            </article>
+
+            <article className="project-card flash-project-card">
+              <div className="project-image-stage">
+                <picture>
+                  <source media="(max-width: 767px)" srcSet={flashProjectMobile} />
+                  <img
+                    src={flashProject}
+                    alt="STM32 SPI NOR flash storage controller architecture"
+                  />
+                </picture>
+              </div>
+              <div className="project-card-body">
+                <p className="project-category">Embedded systems · Firmware</p>
+                <h2>RTOS-Based Flash Storage Controller</h2>
+                <p className="project-summary">
+                  STM32-based SPI NOR flash controller implementing read, page-program,
+                  and sector-erase operations, with a foundation for RTOS scheduling and DMA.
+                </p>
+
+                <div className="project-contribution">
+                  <p>My contribution</p>
+                  <span>Bare-metal firmware · SPI driver · Flash memory interface</span>
+                </div>
+
+                <ul className="project-tools" aria-label="Flash storage controller tools">
+                  <li>STM32</li>
+                  <li>Embedded C</li>
+                  <li>SPI NOR</li>
+                  <li>FreeRTOS</li>
+                </ul>
+
+                <a
+                  className="project-github-link"
+                  href="https://github.com/shamikspeare/rtos-based-flash-storage-controller"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="project-github-icon" size={22} strokeWidth={1.9} />
+                  <span>GitHub</span>
+                  <ArrowUpRight className="project-link-arrow" size={20} strokeWidth={1.9} />
                 </a>
               </div>
             </article>
