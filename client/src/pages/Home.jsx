@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { ArrowUpRight, ChevronDown, Download, Github, Settings } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Download, Github, Settings } from "lucide-react";
 import profilePhoto from "../assets/LINKEDIN PP 2.jpg";
 import bmsThumbnail from "../assets/bms_thumbnail.webp";
 import flashProject from "../assets/flashproject.webp";
@@ -22,18 +22,7 @@ const skillGroups = [
 ];
 
 const Home = () => {
-  const [skillsOpen, setSkillsOpen] = useState(() =>
-    typeof window !== "undefined" && window.matchMedia("(min-width: 641px)").matches
-  );
   const [activeSection, setActiveSection] = useState(null);
-
-  useEffect(() => {
-    const laptopQuery = window.matchMedia("(min-width: 641px)");
-    const syncSkillsState = (event) => setSkillsOpen(event.matches);
-
-    laptopQuery.addEventListener("change", syncSkillsState);
-    return () => laptopQuery.removeEventListener("change", syncSkillsState);
-  }, []);
 
   const toggleSection = (section) => {
     setActiveSection((current) => current === section ? null : section);
@@ -63,7 +52,7 @@ const Home = () => {
               </span>
             </p>
 
-            <div className={`skills-browser${skillsOpen ? " is-open" : ""}`}>
+            <div className="skills-browser is-open">
               <div className="skills-heading">
                 <div className="skills-heading-label">
                   <span className="skills-icon" aria-hidden="true">
@@ -71,16 +60,6 @@ const Home = () => {
                   </span>
                   <span className="skills-title">Skills</span>
                 </div>
-                <button
-                  className="skills-toggle"
-                  type="button"
-                  aria-expanded={skillsOpen}
-                  aria-controls="skills-content"
-                  onClick={() => setSkillsOpen((open) => !open)}
-                >
-                  <span>{skillsOpen ? "Show less" : "See all"}</span>
-                  <ChevronDown size={14} strokeWidth={2} aria-hidden="true" />
-                </button>
               </div>
 
               <div className="top-skills" aria-label="Top skills">
@@ -88,7 +67,7 @@ const Home = () => {
                 <span>Linux</span><span>C++</span>
               </div>
 
-              <div className="skills-content" id="skills-content" aria-hidden={!skillsOpen}>
+              <div className="skills-content" id="skills-content">
                 {skillGroups.map((group) => (
                   <section className="skill-group" key={group.title}>
                     <h2>{group.title}</h2>
