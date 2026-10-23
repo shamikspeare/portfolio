@@ -5,7 +5,7 @@
 :root {
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color-scheme: light;
-  color: #11110f;
+  color: #252824;
   background: #fafafa;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -80,9 +80,9 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   left: 0;
   background-image:
-    linear-gradient(rgba(68, 72, 76, 0.13) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(68, 72, 76, 0.13) 1px, transparent 1px),
-    radial-gradient(circle at top left, rgba(255, 90, 25, 0.18), transparent 70%);
+    linear-gradient(rgba(68, 72, 76, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(68, 72, 76, 0.10) 1px, transparent 1px),
+    radial-gradient(circle at top left, rgba(255, 90, 25, 0.14), transparent 70%);
   -webkit-mask-image: radial-gradient(circle at top left, #000 0%, rgba(0, 0, 0, 0.72) 48%, transparent 78%);
   mask-image: radial-gradient(circle at top left, #000 0%, rgba(0, 0, 0, 0.72) 48%, transparent 78%);
 }
@@ -91,9 +91,9 @@ a { color: inherit; text-decoration: none; }
   right: 0;
   bottom: 0;
   background-image:
-    linear-gradient(rgba(68, 72, 76, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(68, 72, 76, 0.12) 1px, transparent 1px),
-    radial-gradient(circle at bottom right, rgba(21, 87, 255, 0.16), transparent 70%);
+    linear-gradient(rgba(68, 72, 76, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(68, 72, 76, 0.09) 1px, transparent 1px),
+    radial-gradient(circle at bottom right, rgba(21, 87, 255, 0.12), transparent 70%);
   -webkit-mask-image: radial-gradient(circle at bottom right, #000 0%, rgba(0, 0, 0, 0.68) 48%, transparent 78%);
   mask-image: radial-gradient(circle at bottom right, #000 0%, rgba(0, 0, 0, 0.68) 48%, transparent 78%);
 }
@@ -233,7 +233,7 @@ a { color: inherit; text-decoration: none; }
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  border: 1px solid #343733;
+  border: 1px solid var(--accent);
   border-radius: 0;
   color: var(--accent);
   background: transparent;
@@ -255,10 +255,10 @@ a { color: inherit; text-decoration: none; }
   gap: 0.35rem;
   min-height: 1.9rem;
   padding: 0.38rem 0.55rem;
-  border: 1px solid #9c9e99;
+  border: 1px solid var(--accent);
   border-radius: 0;
-  color: #343733;
-  background: transparent;
+  color: #11110f;
+  background: rgba(21, 87, 255, 0.08);
   font: inherit;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.62rem;
@@ -271,8 +271,8 @@ a { color: inherit; text-decoration: none; }
 
 .skills-toggle:hover {
   border-color: var(--accent);
-  color: #1e211e;
-  background: var(--active-nav-bg);
+  color: #fff;
+  background: rgba(21, 87, 255, 0.18);
 }
 
 .skills-toggle svg {
@@ -393,11 +393,10 @@ a { color: inherit; text-decoration: none; }
   height: 0.9em;
 }
 
-.hero-nav a:hover,
-.hero-nav button:hover {
-  color: var(--ink);
-  transform: translateY(-2px);
-}
+.hero-nav a:focus,
+.hero-nav button:focus,
+.hero-nav a:active,
+.hero-nav button:active { color: #e84f12; }
 
 .nav-toggle.is-active {
   border-bottom: 1px solid currentColor;
@@ -409,6 +408,14 @@ a { color: inherit; text-decoration: none; }
 .skills-toggle:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .hero-nav a:hover,
+  .hero-nav button:hover {
+    color: var(--ink);
+    transform: translateY(-2px);
+  }
 }
 
 .contact-panel-shell,

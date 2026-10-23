@@ -16,7 +16,7 @@ const Cards = ({
     const navigate = useNavigate();
 
     return (
-        <div className="mt-7 flex justify-center">
+        <div className="mt-[2.275rem] flex justify-center sm:mt-7">
             <div className="w-[85%] sm:w-full max-w-[600px] md:max-w-[850px] bg-neutral-800 backdrop-blur-sm px-4 sm:px-9 pb-4 sm:pb-9 pt-3 sm:pt-6 overflow-hidden rounded-3xl">
                 {/* Title */}
                 {title && (

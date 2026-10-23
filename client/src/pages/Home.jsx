@@ -144,41 +144,6 @@ const Home = () => {
             aria-hidden={activeSection !== "projects"}
             inert={activeSection !== "projects"}
           >
-            <article className="project-card">
-              <div className="project-image-stage">
-                <img src={bmsThumbnail} alt="4S lithium-ion battery management system board" />
-              </div>
-              <div className="project-card-body">
-                <p className="project-category">Power electronics · Embedded</p>
-                <h2>4S Li-ion BMS</h2>
-                <p className="project-summary">
-                  Compact protection and cell-balancing board for a four-cell lithium-ion pack.
-                </p>
-
-                <div className="project-contribution">
-                  <p>My contribution</p>
-                  <span>PCB design · Circuit validation · Embedded firmware</span>
-                </div>
-
-                <ul className="project-tools" aria-label="Project tools">
-                  <li>KiCad</li>
-                  <li>Embedded C</li>
-                  <li>LTspice</li>
-                </ul>
-
-                <a
-                  className="project-github-link"
-                  href="https://github.com/shamikspeare?tab=repositories&q=BMS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="project-github-icon" size={22} strokeWidth={1.9} />
-                  <span>GitHub</span>
-                  <ArrowUpRight className="project-link-arrow" size={20} strokeWidth={1.9} />
-                </a>
-              </div>
-            </article>
-
             <article className="project-card flash-project-card">
               <div className="project-image-stage">
                 <picture>
@@ -212,6 +177,41 @@ const Home = () => {
                 <a
                   className="project-github-link"
                   href="https://github.com/shamikspeare/rtos-based-flash-storage-controller"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="project-github-icon" size={22} strokeWidth={1.9} />
+                  <span>GitHub</span>
+                  <ArrowUpRight className="project-link-arrow" size={20} strokeWidth={1.9} />
+                </a>
+              </div>
+            </article>
+
+            <article className="project-card">
+              <div className="project-image-stage">
+                <img src={bmsThumbnail} alt="4S lithium-ion battery management system board" />
+              </div>
+              <div className="project-card-body">
+                <p className="project-category">Power electronics · Embedded</p>
+                <h2>4S Li-ion BMS</h2>
+                <p className="project-summary">
+                  Compact protection and cell-balancing board for a four-cell lithium-ion pack.
+                </p>
+
+                <div className="project-contribution">
+                  <p>My contribution</p>
+                  <span>PCB design · Circuit validation · Embedded firmware</span>
+                </div>
+
+                <ul className="project-tools" aria-label="Project tools">
+                  <li>KiCad</li>
+                  <li>Embedded C</li>
+                  <li>LTspice</li>
+                </ul>
+
+                <a
+                  className="project-github-link"
+                  href="https://github.com/shamikspeare?tab=repositories&q=BMS"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
