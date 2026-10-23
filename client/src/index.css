@@ -839,6 +839,20 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 640px) {
+  .site-shell::before,
+  .site-shell::after {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .site-shell::before {
+    background-image: radial-gradient(circle at top left, rgba(255, 90, 25, 0.14), transparent 70%);
+  }
+
+  .site-shell::after {
+    background-image: radial-gradient(circle at bottom right, rgba(21, 87, 255, 0.12), transparent 70%);
+  }
+
   .hero {
     min-height: 100svh;
     align-items: stretch;
