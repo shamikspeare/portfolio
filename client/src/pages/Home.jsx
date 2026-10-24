@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Download, Github, Settings } from "lucide-react";
+import { ArrowUpRight, Download, Github, MoveRight, Settings } from "lucide-react";
 import profilePhoto from "../assets/LINKEDIN PP 2.jpg";
 import bmsThumbnail from "../assets/bms_thumbnail.webp";
 import flashProject from "../assets/flashproject.webp";
@@ -32,12 +32,15 @@ const Home = () => {
     <main className="site-shell">
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-intro">
-          <img
-            className="hero-photo"
-            src={profilePhoto}
-            alt="Shamik Goswami"
-            draggable="false"
-          />
+          <aside className="profile-card" aria-label="Profile photo and location">
+            <img
+              className="hero-photo"
+              src={profilePhoto}
+              alt="Shamik Goswami"
+              draggable="false"
+            />
+            <p className="profile-location">Kolkata, India</p>
+          </aside>
 
           <div className="hero-copy">
             <div className="hero-name-row">
@@ -89,7 +92,8 @@ const Home = () => {
             aria-controls="projects-panel"
             onClick={() => toggleSection("projects")}
           >
-            Projects
+            <span>Projects</span>
+            <MoveRight className="nav-long-arrow" size={21} strokeWidth={1.8} aria-hidden="true" />
           </button>
           <button
             type="button"
@@ -98,20 +102,23 @@ const Home = () => {
             aria-controls="contact-panel"
             onClick={() => toggleSection("contact")}
           >
-            Contact
+            <span>Contact</span>
+            <MoveRight className="nav-long-arrow" size={21} strokeWidth={1.8} aria-hidden="true" />
           </button>
           <a
             href="mailto:gshamik14@gmail.com?subject=Resume%20request"
             aria-label="Request Shamik's resume by email"
           >
-            Resume <Download size={17} strokeWidth={1.8} />
+            <span>Resume</span>
+            <Download className="nav-action-icon" size={23} strokeWidth={1.8} aria-hidden="true" />
           </a>
           <a
             href="https://github.com/shamikspeare"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub <ArrowUpRight size={17} strokeWidth={1.8} />
+            <span>GitHub</span>
+            <Github className="nav-action-icon" size={23} strokeWidth={1.8} aria-hidden="true" />
           </a>
         </nav>
 
